@@ -1,0 +1,141 @@
+/* --- Layout & Centering --- */
+#content {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* This targets the Hero message alignment, Nav is handled in Header now */
+.button-box, main section {
+    text-align: center;
+}
+
+#hero-msg h1, #hero-msg h4 {
+    text-align: center;
+}
+
+/* --- Step 12: Background Colors --- */
+body {
+    background-color: #fcfbfb;
+}
+
+/* --- UPDATED HEADER SECTION --- */
+header {
+    background-color: rgba(20, 30, 13, 0.7);
+    display: flex;            /* Makes logo and nav sit side-by-side */
+    align-items: center;      /* Vertically centers them */
+    justify-content: space-between; /* Ensures logo is left, nav can expand */
+    padding: 10px 30px;       /* Adds a little space around the edges */
+}
+
+/* This makes the nav take up available space so we can center the text inside it */
+nav {
+    flex: 1; 
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5em;       /* INCREASED SIZE */
+    padding: 15px 20px;     /* Adds click space and spacing between links */
+    display: inline-block;  /* Helps padding work correctly */
+    transition: 0.3s;       /* Smooth hover effect */
+}
+
+nav a:hover {
+    background-color: black;
+    color: #d9c2a3; 
+}
+/* --- END UPDATED HEADER --- */
+
+.book, .join {
+    background-color: #d9c2a3;
+    color: black;           
+    text-decoration: none;  
+    padding: 15px 30px;     /* Added padding to make these look like buttons too */
+    font-size: 1.2em;
+    border-radius: 5px;     /* Optional: Rounds corners slightly */
+}
+
+.book:hover, .join:hover {
+    background-color: black;
+    color: #d9c2a3;
+}
+
+#background {
+    background-color: #6f7364;
+    height: 725px;
+}
+
+.msg {
+    background-color: #6f7364;
+    line-height: 1.5;
+    padding: 35px;
+}
+
+footer {
+    background-color: #6f7364;
+    padding: 25px 50px;
+    margin-top: 200px;
+    color: #ffffff;
+}
+
+/* --- Text Colors & Typography --- */
+.home-title {
+    color: #6f7364;
+}
+
+h4 {
+    color: #6f7364;
+}
+
+.msg h2 {
+    color: #ffffff;
+}
+
+.msg p {
+    color: #ffffff;
+    padding-bottom: 15px;
+}
+
+footer a {
+    color: #d9c2a3;
+    text-decoration: none; 
+}
+
+footer a:hover {
+    color: #000000;
+    text-decoration: underline; 
+}
+
+footer p {
+    font-size: 1.2em; 
+}
+
+/* --- Step 14: Widths & Sizing --- */
+.logo {
+    width: 80px;
+}
+
+.icon {
+    width: 80px;
+    padding-top: 10px;
+}
+
+#hero-img {
+    width: 100%;
+    display: block; /* Removes tiny gap under image */
+}
+
+.icon-image {
+    width: 80px;
+    padding-top: 15px;
+}
+
+.social {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 20px;              
+    margin-top: 20px;       
+}
