@@ -3,24 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 130 Assignment Portal</title>
+    <title>WDD 130 Assignment Portal | Joe Harty</title>
     <link rel="stylesheet" href="portal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
+        <img src="harty.png" alt="Joe Harty Logo" width="100">
         <h1>WDD 130: Web Fundamentals Portal</h1>
-        <p>Assignment links for Joe Harty</p>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="wwr/site-plan-rafting.html">WWR</a></li>
+                <li><a href="ice.html">ICE</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <h2>Course Assignments</h2>
-        <ul>
-            <li><a href="ice/oaks.html">Oaks ICE Page</a></li>
-            <li><a href="wwr/site-plan-rafting.html">Rafting Site Plan</a></li>
-            <li><a href="wwr/index.html">Rafting Home Page</a></li>
-            <li><a href="wwr/contactus.html">Rafting Contact Us</a></li>
-        </ul>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my portal page! I am a student at BYU-Idaho learning web fundamentals through designing and developing web pages.</p>
+            <img src="profile-placeholder.jpg" alt="Joe Harty Profile Picture" width="200">
+        </section>
+
+        <section id="assignments">
+            <h2>Course Assignments</h2>
+            <ul>
+                <li><a href="ice/oaks.html">Oaks ICE Page</a></li>
+                <li><a href="wwr/index.html">Rafting Home Page</a></li>
+                <li><a href="wwr/contactus.html">Rafting Contact Us</a></li>
+            </ul>
+        </section>
+
+        <section id="schedule">
+            <h2>Weekly Study Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Task</th>
+                        <th>Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>HTML/CSS Practice</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>ICE Challenges</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form action="#">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" placeholder="Enter your name">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="user_email" placeholder="Enter your email">
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
     </main>
 
     <footer>
