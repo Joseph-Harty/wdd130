@@ -1,42 +1,133 @@
-/* 1. Set the body to a grid layout */
+/* 1. Fancy Animated Background */
 body {
-    display: grid;
-    /* This creates 3 equal columns */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
-    padding: 40px;
-    background-color: #fff5f7;
-    font-family: sans-serif;
-}
-
-/* 2. Force the Nav, Header, and Main Image to span all 3 columns */
-/* (Otherwise they would get squished into the first column) */
-ul, h1, img, footer {
-    grid-column: 1 / -1; 
-    text-align: center;
-}
-
-/* 3. Style the image to be centered and reasonable size */
-img {
-    max-width: 800px;
-    margin: 0 auto;
-    border-radius: 15px;
-}
-
-/* 4. Target the H2s and Ps to sit side-by-side */
-/* We'll make them look like cards without changing the HTML structure */
-h2, p {
-    text-align: left;
+    background: linear-gradient(-45deg, #fff5f7, #ffeef2, #ffccd5, #fff5f7);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
     margin: 0;
+    padding: 40px 20px;
+    color: #4a0e0e;
+    display: flex;
+    justify-content: center;
 }
 
-/* Optional: Adding a bit of "card" styling to the text blocks */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. Glassmorphism Wrapper */
+#wrapper {
+    max-width: 850px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(201, 24, 74, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* 3. Navigation Bar */
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    background: #ff4d6d;
+    margin: 0;
+    padding: 25px;
+}
+
+nav li {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav li:hover {
+    color: #ffeef2;
+    transform: translateY(-3px);
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+/* 4. Main Title with Heartbeat Animation */
+h1 {
+    font-size: 3.5rem;
+    color: #c9184a;
+    text-align: center;
+    margin: 40px 0;
+    font-family: 'Georgia', serif;
+    animation: heartBeat 2s infinite;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.05); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.05); }
+    70% { transform: scale(1); }
+}
+
+/* 5. 3D Flipping Polaroid Image */
+img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 40px auto;
+    padding: 15px 15px 60px 15px; /* Polaroid frame */
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+    /* 3D Flip Setup */
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotate(2deg); 
+    cursor: pointer;
+}
+
+img:hover {
+    /* Flipping effect */
+    transform: rotateY(180deg) scale(1.1);
+    box-shadow: 0 20px 40px rgba(201, 24, 74, 0.3);
+}
+
+/* 6. Section Content */
+section {
+    padding: 0 60px 40px;
+}
+
 h2 {
-    color: #e91e63;
-    padding-top: 20px;
+    color: #ff4d6d;
+    font-size: 2rem;
+    border-bottom: 2px dashed #ffccd5;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Add a heart icon using CSS only */
+h2::before {
+    content: '💖 ';
+    font-size: 1.4rem;
 }
 
 p {
-    padding-bottom: 20px;
-    line-height: 1.6;
+    line-height: 1.9;
+    font-size: 1.1rem;
+    color: #5d2a2a;
+}
+
+/* 7. Footer */
+footer {
+    background-color: #ffccd5;
+    padding: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #c9184a;
+    letter-spacing: 1px;
 }
