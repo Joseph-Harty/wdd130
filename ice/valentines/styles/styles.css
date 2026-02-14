@@ -1,0 +1,42 @@
+/* 1. Set the body to a grid layout */
+body {
+    display: grid;
+    /* This creates 3 equal columns */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    padding: 40px;
+    background-color: #fff5f7;
+    font-family: sans-serif;
+}
+
+/* 2. Force the Nav, Header, and Main Image to span all 3 columns */
+/* (Otherwise they would get squished into the first column) */
+ul, h1, img, footer {
+    grid-column: 1 / -1; 
+    text-align: center;
+}
+
+/* 3. Style the image to be centered and reasonable size */
+img {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+/* 4. Target the H2s and Ps to sit side-by-side */
+/* We'll make them look like cards without changing the HTML structure */
+h2, p {
+    text-align: left;
+    margin: 0;
+}
+
+/* Optional: Adding a bit of "card" styling to the text blocks */
+h2 {
+    color: #e91e63;
+    padding-top: 20px;
+}
+
+p {
+    padding-bottom: 20px;
+    line-height: 1.6;
+}
