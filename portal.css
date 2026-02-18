@@ -1,6 +1,6 @@
 /* 1. Global Styles */
 body {
-    background-color: #F7E0DE; /* Soft Blush Base remains for the main body */
+    background-color: #D8E9DB; /* Soft Blush Base remains for the main body */
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
     color: #333;
@@ -13,7 +13,7 @@ h1, h2, .nav-btn, .project-btn {
 
 /* 2. Header: Dark Red Bar with Logo and Buttons Centered */
 header {
-    background-color: #832232; /* Dark Red as requested */
+    background-color: #43754C; /* Dark Red as requested */
     padding: 20px;
     border-bottom: 3px solid #DAB707; /* Added Gold border for extra pop */
 }
@@ -41,8 +41,8 @@ header {
 }
 
 .nav-btn {
-    background-color: #3C76B9; /* Royal Blue */
-    color: #DAB707;           /* Gold Text */
+    background-color: #DAB707; /* Royal Blue */
+    color: white;           /* Gold Text */
     text-decoration: none;
     padding: 10px 25px;
     font-size: 1.5rem;
@@ -51,8 +51,8 @@ header {
 }
 
 .nav-btn:hover {
-    background-color: #DAB707; 
-    color: #3C76B9; /* Inverts on hover */
+    background-color: white; 
+    color: #DAB707; /* Inverts on hover */
 }
 
 /* 3. Hero & Features */
@@ -62,7 +62,7 @@ header {
     height: auto;
     display: block;
     margin: 30px auto;
-    border: 5px solid #3C76B9;
+    border: 5px solid #DAB707;
 }
 
 #features {
@@ -75,7 +75,7 @@ header {
 .feature-box img {
     width: 100%;
     max-width: 250px;
-    border: 3px solid #3C76B9;
+    border: 3px solid #DAB707;
 }
 
 /* 4. Projects: Vertical Stack (H2 on top of Buttons) */
@@ -93,12 +93,12 @@ header {
 h2 {
     font-size: 3rem;
     margin: 0;
-    color: #832232; /* Using the Dark Red for the section title */
+    color: #43754C; /* Using the Dark Red for the section title */
 }
 
 .project-btn {
-    background-color: #3C76B9; /* Royal Blue */
-    color: #DAB707;           /* Gold Text */
+    background-color: #DAB707; /* Royal Blue */
+    color: white;           /* Gold Text */
     text-decoration: none;
     padding: 15px 30px;
     font-size: 2rem;
@@ -108,13 +108,13 @@ h2 {
 }
 
 .project-btn:hover {
-    background-color: #832232;
+    background-color: #43754C;
     color: #FFFFFF;
 }
 
 /* 5. Footer: Matching the Dark Red Header */
 footer {
-    background-color: #832232;
+    background-color: #43754C;
     color: #FFFFFF;
     padding: 40px;
 }
