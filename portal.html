@@ -3,84 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 130 Assignment Portal | Joe Harty</title>
+    <title>Joe Harty | Professional Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portal.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <img src="harty.png" alt="Joe Harty Logo" width="100">
-        <h1>WDD 130: Web Fundamentals Portal</h1>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="wwr/site-plan-rafting.html">WWR</a></li>
-                <li><a href="ice.html">ICE</a></li>
-                <li><a href="about.html">About Me</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <img src="harty.png" alt="Harty Logo" class="logo" id="main-logo" onclick="spinLogo()">
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-btn">Home</a></li>
+                    <li><a href="wwr/index.html" class="nav-btn">WWR</a></li>
+                    <li><a href="ice.html" class="nav-btn">ICE</a></li>
+                    <li><a href="about.html" class="nav-btn">About Me</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Welcome to my portal page! I am a student at BYU-Idaho learning web fundamentals through designing and developing web pages.</p>
-            <img src="profile-placeholder.jpg" alt="Joe Harty Profile Picture" width="200">
+        <section id="hero">
+            <img src="images/military-hero.jpg" alt="Joe Harty Military Focused" class="hero-img">
         </section>
 
-        <section id="assignments">
-            <h2>Course Assignments</h2>
-            <ul>
-                <li><a href="ice/oaks.html">Oaks ICE Page</a></li>
-                <li><a href="wwr/index.html">Rafting Home Page</a></li>
-                <li><a href="wwr/contactus.html">Rafting Contact Us</a></li>
-            </ul>
+        <section id="features">
+            <div class="feature-box">
+                <img src="images/church.jpg" alt="Faith">
+                <p>Faith</p>
+            </div>
+            <div class="feature-box">
+                <img src="images/cooking.jpg" alt="Service">
+                <p>Service</p>
+            </div>
+            <div class="feature-box">
+                <img src="images/computer.jpg" alt="Skill">
+                <p>Skill</p>
+            </div>
         </section>
 
-        <section id="schedule">
-            <h2>Weekly Study Schedule</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Task</th>
-                        <th>Hours</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Monday</td>
-                        <td>HTML/CSS Practice</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>Wednesday</td>
-                        <td>ICE Challenges</td>
-                        <td>2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form action="#">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name" placeholder="Enter your name">
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="user_email" placeholder="Enter your email">
-                
-                <button type="submit">Send Message</button>
-            </form>
+        <section id="projects">
+            <div class="vertical-stack">
+                <h2>Projects</h2>
+                <a href="ice/oaks.html" class="project-btn">Oaks ICE Page</a>
+                <a href="wwr/index.html" class="project-btn">Rafting Home Page</a>
+                <a href="wwr/contactus.html" class="project-btn">Rafting Contact Us</a>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 | WDD 130 | Joe Harty</p>
+        <div class="socials">
+            <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>
     </footer>
+
+    <script>
+    function spinLogo() {
+        const logo = document.getElementById('main-logo');
+        logo.classList.remove('spinning');
+        void logo.offsetWidth; // Reset animation
+        logo.classList.add('spinning');
+    }
+    </script>
 
 </body>
 </html>
