@@ -1,86 +1,110 @@
 /* 1. Global Styles */
+* {
+    box-sizing: border-box; /* Crucial for adaptive design: includes padding/border in width */
+}
+
 body {
-    background-color: #D8E9DB; /* Soft Blush Base remains for the main body */
+    background-color: #D8E9DB; 
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
     color: #333;
-    text-align: center; 
+    text-align: center;
+    overflow-x: hidden; /* Prevents accidental side-scrolling */
 }
 
 h1, h2, .nav-btn, .project-btn {
     font-family: 'Nanum Brush Script', cursive;
 }
 
-/* 2. Header: Dark Red Bar with Logo and Buttons Centered */
+/* 2. Header: Sticky & Side-by-Side */
 header {
-    background-color: #43754C; /* Dark Red as requested */
-    padding: 20px;
-    border-bottom: 3px solid #DAB707; /* Added Gold border for extra pop */
+    background-color: #43754C;
+    padding: 10px 20px; 
+    border-bottom: 3px solid #DAB707;
+    
+    /* This makes the header follow you down the page */
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
 }
 
 .header-container {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;    /* Keep logo and nav side-by-side */
     align-items: center;    
     justify-content: center; 
-    gap: 40px;              
-}
-
-.logo {
-    width: 100px;
-    height: auto;
-    filter: brightness(0) invert(1); /* Optional: makes logo white if it's a dark file */
+    gap: 20px;              
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    flex-direction: row;    /* Keep buttons side-by-side */
+    gap: 10px;
     margin: 0;
     padding: 0;
 }
 
 .nav-btn {
-    background-color: #DAB707; /* Royal Blue */
-    color: white;           /* Gold Text */
+    background-color: #DAB707; 
+    color: white;
     text-decoration: none;
-    padding: 10px 25px;
-    font-size: 1.5rem;
+    padding: 8px 15px;      /* Default for smaller screens */
+    font-size: 1.1rem;      
     border-radius: 5px;
     transition: 0.3s;
+    white-space: nowrap;    /* Prevents the text inside buttons from breaking */
 }
 
 .nav-btn:hover {
     background-color: white; 
-    color: #DAB707; /* Inverts on hover */
+    color: #DAB707;
 }
 
-/* 3. Hero & Features */
+/* 3. Hero & Features: Adaptive Layout */
 .hero-img {
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
+    width: 100%;       /* Takes full width of screen */
+    max-width: 1000px; /* Limits size on large screens */
+    height: auto;      
     display: block;
-    margin: 30px auto;
+    margin: 20px auto;
     border: 5px solid #DAB707;
 }
 
 #features {
     display: flex;
+    flex-direction: row; /* Forces side-by-side layout */
     justify-content: center;
-    gap: 40px;
-    padding: 40px;
+    align-items: flex-start;
+    gap: 20px;          /* Space between boxes */
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;  /* Matches hero width for alignment */
+    margin: 0 auto;     /* Centers the whole section */
+}
+
+.feature-box {
+    flex: 1;            /* Forces all boxes to be the exact same width */
+    min-width: 0;       /* Critical: allows flex items to shrink below their content size */
 }
 
 .feature-box img {
-    width: 100%;
-    max-width: 250px;
+    width: 100%;        /* Image fills the flexible box */
+    height: auto;
     border: 3px solid #DAB707;
+    display: block;
 }
 
-/* 4. Projects: Vertical Stack (H2 on top of Buttons) */
+.feature-box p {
+    margin-top: 10px;
+    font-size: clamp(1rem, 2vw, 1.5rem); 
+}
+
+/* 4. Projects: Adaptive Stack */
 #projects {
-    padding: 50px 0;
+    padding: 40px 10px;
 }
 
 .vertical-stack {
@@ -91,18 +115,19 @@ header {
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 8vw, 3rem); 
     margin: 0;
-    color: #43754C; /* Using the Dark Red for the section title */
+    color: #43754C;
 }
 
 .project-btn {
-    background-color: #DAB707; /* Royal Blue */
-    color: white;           /* Gold Text */
+    background-color: #DAB707; 
+    color: white;
     text-decoration: none;
     padding: 15px 30px;
-    font-size: 2rem;
-    width: 300px;             
+    font-size: 1.8rem;
+    width: 90%;          
+    max-width: 300px;    
     box-shadow: 4px 4px 0px #333;
     transition: 0.3s;
 }
@@ -112,11 +137,11 @@ h2 {
     color: #FFFFFF;
 }
 
-/* 5. Footer: Matching the Dark Red Header */
+/* 5. Footer */
 footer {
     background-color: #43754C;
     color: #FFFFFF;
-    padding: 40px;
+    padding: 40px 20px;
 }
 
 .socials img {
@@ -124,22 +149,46 @@ footer {
     margin: 0 10px;
     filter: brightness(0) invert(1);
 }
-/* The logo base style */
+
+/* 6. Logo Animation & Color */
 .logo {
-    width: 100px;
+    width: 70px; /* Default small size for narrow/half screens */
     height: auto;
     cursor: pointer;
-    /* This ensures the animation stops cleanly */
-    backface-visibility: hidden; 
+    backface-visibility: hidden;
+    filter: brightness(0) invert(1);
+    transition: width 0.3s ease; /* Smooth transition when resizing */
 }
 
-/* The Animation: 10 full rotations */
 @keyframes super-spin {
     from { transform: rotate(0deg); }
-    to { transform: rotate(3600deg); } /* 360 degrees * 10 = 3600 */
+    to { transform: rotate(3600deg); } 
 }
 
-/* This class gets added by the click */
 .spinning {
     animation: super-spin 2s ease-in-out; 
+}
+
+/* 7. Full Screen Adjustments (Wider than 1000px) */
+@media (min-width: 1000px) {
+    header {
+        padding: 20px; /* Taller header for full screen */
+    }
+
+    .header-container {
+        gap: 60px; /* More space between logo and nav */
+    }
+
+    .logo {
+        width: 120px; /* Larger white logo */
+    }
+
+    .nav-btn {
+        padding: 12px 25px; 
+        font-size: 1.6rem;   /* Larger text for high-res screens */
+    }
+
+    .nav-links {
+        gap: 25px; 
+    }
 }

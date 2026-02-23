@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe Harty | Professional Portal</title>
+    <title>Joe Harty | ICE Challenges</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portal.css">
+    <link rel="stylesheet" href="ice.css">
 </head>
 <body>
-
     <header>
         <div class="header-container">
             <img src="harty.png" alt="Harty Logo" class="logo" id="main-logo" onclick="spinLogo()">
-            
             <nav>
                 <ul class="nav-links">
                     <li><a href="portal.html" class="nav-btn">Home</a></li>
@@ -25,36 +23,29 @@
     </header>
 
     <main>
-        <section id="hero">
-            <img src="military-hero.jpg" alt="Joe Harty Military Focused" class="hero-img">
-        </section>
-
-        <section id="features">
-            <div class="feature-box">
-                <img src="church.jpg" alt="Faith">
-                <p>Faith</p>
-            </div>
-            <div class="feature-box">
-                <img src="cooking.jpg" alt="Service">
-                <p>Service</p>
-            </div>
-            <div class="feature-box">
-                <img src="skill.jpg" alt="Skill">
-                <p>Skill</p>
-            </div>
-        </section>
-
         <section id="projects">
             <div class="vertical-stack">
-                <h2>Projects</h2>
-                <a href="ice/oaks.html" class="project-btn">Oaks ICE Page</a>
-                <a href="wwr/index.html" class="project-btn">Rafting Home Page</a>
-                <a href="wwr/contactus.html" class="project-btn">Rafting Contact Us</a>
+                <h1>In-Class Exercises</h1>
                 
-                <a href="ice/grid_flags/flags.html" class="project-btn">Grid & Flags</a>
-                <a href="ice/valentines/index.html" class="project-btn">Valentine's Page</a>
+                <div class="ice-card">
+                    <h2>Oaks Page</h2>
+                    <p>I learned to organize content using semantic HTML tags and how to link an external stylesheet to control typography and colors.</p>
+                    <a href="ice/oaks.html" class="project-btn" target="_blank">View Oaks Page</a>
+                </div>
+
+                <div class="ice-card">
+                    <h2>Grid & Flags</h2>
+                    <p>This challenge focused on <strong>CSS Grid</strong>. I practiced creating layouts with grid-template-columns to build flag designs without images.</p>
+                    <a href="ice/grid_flags/flags.html" class="project-btn" target="_blank">View Flags Page</a>
+                </div>
+
+                <div class="ice-card">
+                    <h2>Valentine's Page</h2>
+                    <p>In this exercise, I used <strong>Flexbox</strong> to align seasonal content and explored how fonts can change the mood of a webpage.</p>
+                    <a href="ice/valentines/index.html" class="project-btn" target="_blank">View Valentine Page</a>
+                </div>
             </div>
-</section>
+        </section>
     </main>
 
     <footer>
@@ -69,10 +60,9 @@
     function spinLogo() {
         const logo = document.getElementById('main-logo');
         logo.classList.remove('spinning');
-        void logo.offsetWidth; // Reset animation
+        void logo.offsetWidth; 
         logo.classList.add('spinning');
     }
     </script>
-
 </body>
 </html>
