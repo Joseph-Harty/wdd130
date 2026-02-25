@@ -112,39 +112,29 @@
   grid-row: 3 / 4;
 }
 
-/* Activity 5 styles: Floating for Text Wrap */
+/* Activity 5 */
 
-.content5 {
-  width: 100%;
-}
-
-/* Top full-width red bar */
 .red5 {
   background-color: red;
-  height: 100px;
-  width: 100%;
+  height: 120px;
 }
 
-/* Green box that text wraps around */
 .green5 {
   background-color: green;
-  width: 200px;
-  height: 250px;
+  width: 230px;
+  height: 230px;   /* 👈 THIS was the problem */
   float: left;
-  margin: 0 15px 10px 0; /* space between box and text */
 }
 
-/* Yellow text area */
 .yellow5 {
   background-color: yellow;
-  padding: 10px;
+  padding: 20px;
 }
 
-/* Bottom full-width blue bar */
 .blue5 {
   background-color: blue;
-  height: 100px;
-  clear: both; /* pushes it below the float */
+  height: 120px;
+  clear: both;
 }
 
 .content6 {
