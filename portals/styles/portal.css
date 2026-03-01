@@ -192,3 +192,109 @@ footer {
         gap: 25px; 
     }
 }
+
+/* --- EASTER EGG GAME STYLES --- */
+
+/* The hidden scoreboard that slides up and fades */
+#secret-scoreboard {
+    position: fixed;
+    bottom: -60px; 
+    right: 20px;
+    opacity: 0; /* Fully transparent when hidden */
+    background-color: #222;
+    color: #00FF00; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.3);
+    transition: bottom 0.5s ease, opacity 0.5s ease; /* Animates both slide and fade */
+    z-index: 9999;
+}
+
+/* Class added by JS to reveal the scoreboard */
+.show-scoreboard {
+    bottom: 20px !important;
+    opacity: 1 !important; /* Fully visible */
+}
+
+/* The +10 XP text that floats from the mouse */
+.floating-xp {
+    position: absolute;
+    color: #DAB707;
+    font-family: 'Nanum Brush Script', cursive; /* Matches your theme */
+    font-size: 2rem;
+    pointer-events: none; /* Prevents the text from blocking other clicks */
+    animation: floatUp 1s ease-out forwards;
+    z-index: 10000;
+}
+
+/* Animation for the floating text */
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+}
+
+/* --- RPG MINI-GAME --- */
+#quest-track {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #222;
+    border-top: 3px solid #DAB707;
+    display: none; /* Hidden until they interact */
+    z-index: 9998;
+}
+
+#game-hero, #enemy {
+    font-size: 40px;
+    position: absolute;
+    bottom: 5px;
+    transition: left 0.3s ease-out; /* Smooth walking */
+}
+
+#game-hero { left: 2%; }
+#enemy { right: 5%; }
+
+#victory-text {
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 15px;
+    display: none;
+}
+
+/* Animations */
+.attack-lunge {
+    animation: lunge 0.2s ease-in-out alternate 2;
+}
+
+@keyframes lunge {
+    to { transform: translateX(40px); }
+}
+
+/* Enemy Reaction Animation */
+.enemy-react {
+    animation: enemyJump 0.3s ease-in-out;
+}
+
+@keyframes enemyJump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px) translateX(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Enemy Defeated State */
+.dead-enemy {
+    transform: rotate(90deg);
+    opacity: 0.5;
+    transition: all 0.5s;
+    filter: grayscale(100%);
+}

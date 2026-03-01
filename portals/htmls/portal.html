@@ -11,7 +11,7 @@
 
     <header>
         <div class="header-container">
-            <img src="../images/harty.png" alt="Harty Logo" class="logo" id="main-logo" onclick="spinLogo()">
+            <img src="../images/harty.png" alt="Harty Logo" class="logo" id="main-logo" onclick="spinLogo(event)">
             
             <nav>
                 <ul class="nav-links">
@@ -48,7 +48,6 @@
             <div class="vertical-stack">
                 <h2>Projects</h2>
 
-                <!-- Existing Projects -->
                 <a href="../../ice/oaks/oaks.html" class="project-btn" target="_blank">Oaks Page</a>
                 <a href="../../wwr/index.html" class="project-btn" target="_blank">Rafting Home Page</a>
                 <a href="../../wwr/contactus.html" class="project-btn" target="_blank">Rafting Contact Us</a>
@@ -71,14 +70,194 @@
         </div>
     </footer>
 
+    <div id="quest-track">
+        <div id="game-hero">🤺</div>
+        <div id="enemy">👹</div>
+        <div id="victory-text">ENEMY DEFEATED!</div>
+    </div>
+
     <script>
-        function spinLogo() {
+        // --- LOGO SPIN & BONUS LOGIC ---
+        let spinTimeout; 
+
+        function spinLogo(event) {
             const logo = document.getElementById('main-logo');
             logo.classList.remove('spinning');
             void logo.offsetWidth; 
             logo.classList.add('spinning');
-        }
-    </script>
+            
+            // Initial XP for clicking
+            gainXP(event, 5); 
+            clearTimeout(spinTimeout);
 
+            // Bonus XP if they let it spin the full 2.22 seconds
+            spinTimeout = setTimeout(() => {
+                gainXP(event, 45); 
+            }, 2220);
+        }
+
+        // --- EASTER EGG SCOREBOARD LOGIC ---
+        let xp = 0;
+        let scoreboardCreated = false;
+        let fadeTimeout; 
+
+        function createScoreboard() {
+            if (!scoreboardCreated) {
+                const board = document.createElement('div');
+                board.id = 'secret-scoreboard';
+                document.body.appendChild(board);
+                scoreboardCreated = true;
+            }
+        }
+
+        function gainXP(event, amount) {
+            xp += amount;
+            createScoreboard();
+            
+            const board = document.getElementById('secret-scoreboard');
+            board.innerText = `XP: ${xp}`;
+            board.classList.add('show-scoreboard');
+
+            clearTimeout(fadeTimeout);
+            fadeTimeout = setTimeout(() => {
+                board.classList.remove('show-scoreboard');
+            }, 5000); 
+
+            const xpText = document.createElement('div');
+            xpText.classList.add('floating-xp');
+            xpText.innerText = `+${amount} XP`;
+            xpText.style.left = `${event.pageX - 20}px`; 
+            xpText.style.top = `${event.pageY - 20}px`;
+            document.body.appendChild(xpText);
+
+            setTimeout(() => xpText.remove(), 1000);
+        }
+
+        // --- RPG GAME STATE & CONTROLS ---
+        let heroPosition = 2; 
+        let isEnemyDefeated = false;
+
+        // Make the enemy jump/react
+        function triggerEnemyReaction() {
+            if (isEnemyDefeated) return;
+            const enemy = document.getElementById('enemy');
+            
+            // Reset animation so it can play multiple times
+            enemy.classList.remove('enemy-react');
+            void enemy.offsetWidth; 
+            enemy.classList.add('enemy-react');
+        }
+
+function moveHero(event) {
+            if (isEnemyDefeated) return;
+            
+            gainXP(event, 10);
+
+            const track = document.getElementById('quest-track');
+            const hero = document.getElementById('game-hero'); // Looking for game-hero!
+            
+            track.style.display = 'block'; 
+
+            // Move the hero forward by 5% each click
+            if (heroPosition < 85) {
+                heroPosition += 5; 
+                if (heroPosition > 85) heroPosition = 85; 
+                hero.style.left = `${heroPosition}%`;
+            }
+
+            triggerEnemyReaction();
+        }
+
+        function attackEnemy(event) {
+            if (isEnemyDefeated) return;
+            
+            gainXP(event, 15);
+
+            const track = document.getElementById('quest-track');
+            const hero = document.getElementById('game-hero'); // Looking for game-hero!
+            const enemy = document.getElementById('enemy');
+            const victoryText = document.getElementById('victory-text');
+            
+            track.style.display = 'block';
+
+            hero.classList.add('attack-lunge');
+            setTimeout(() => { hero.classList.remove('attack-lunge'); }, 400);
+
+            if (heroPosition >= 85) {
+                setTimeout(() => {
+                    enemy.innerText = '💀'; 
+                    enemy.classList.add('dead-enemy'); 
+                    victoryText.style.display = 'block'; 
+                    isEnemyDefeated = true;
+                }, 200);
+            } else {
+                triggerEnemyReaction();
+            }
+        }
+
+        function attackEnemy(event) {
+            if (isEnemyDefeated) return;
+            
+            // Give XP for attacking
+            gainXP(event, 15);
+
+            const track = document.getElementById('quest-track');
+            const hero = document.getElementById('hero');
+            const enemy = document.getElementById('enemy');
+            const victoryText = document.getElementById('victory-text');
+            
+            track.style.display = 'block';
+
+            // 1. Play lunge animation
+            hero.classList.add('attack-lunge');
+            setTimeout(() => { hero.classList.remove('attack-lunge'); }, 400);
+
+            // 2. Check for a hit
+            if (heroPosition >= 85) {
+                setTimeout(() => {
+                    enemy.innerText = '💀'; 
+                    enemy.classList.add('dead-enemy'); 
+                    victoryText.style.display = 'block'; 
+                    isEnemyDefeated = true;
+                }, 200);
+            } else {
+                // If you swing and miss, the enemy dodges!
+                triggerEnemyReaction();
+            }
+        }
+
+        // --- ATTACH CONTROLS ON PAGE LOAD ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Find specific images
+            const faithImg = document.querySelector('img[alt="Faith"]'); // Church (Move)
+            const skillImg = document.querySelector('img[alt="Skill"]'); // Skill (Attack)
+            const serviceImg = document.querySelector('img[alt="Service"]'); // Cooking (Just XP)
+            const footerText = document.querySelector('footer p');
+
+            // Attach Move function
+            if (faithImg) {
+                faithImg.style.cursor = 'pointer';
+                faithImg.addEventListener('click', moveHero);
+            }
+
+            // Attach Attack function
+            if (skillImg) {
+                skillImg.style.cursor = 'pointer';
+                skillImg.addEventListener('click', attackEnemy);
+            }
+
+            // Attach regular XP to Service (Cooking) image
+            if (serviceImg) {
+                serviceImg.style.cursor = 'pointer';
+                serviceImg.addEventListener('click', (e) => gainXP(e, 10));
+            }
+
+            // Mega secret footer XP
+            if (footerText) {
+                footerText.style.cursor = 'pointer';
+                footerText.addEventListener('click', (e) => gainXP(e, 50));
+            }
+        });
+    </script>
 </body>
 </html>
