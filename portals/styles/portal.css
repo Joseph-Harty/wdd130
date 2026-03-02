@@ -198,25 +198,27 @@ footer {
 /* The hidden scoreboard that slides up and fades */
 #secret-scoreboard {
     position: fixed;
-    bottom: -60px; 
+    bottom: 0; 
     right: 20px;
-    opacity: 0; /* Fully transparent when hidden */
+    opacity: 0;
     background-color: #222;
     color: #00FF00; 
     padding: 10px 20px;
     border-radius: 5px;
+    border: 1px solid #DAB707;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     font-size: 1.2rem;
-    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.3);
-    transition: bottom 0.5s ease, opacity 0.5s ease; /* Animates both slide and fade */
-    z-index: 9999;
+    box-shadow: 0px 0px 15px rgba(218, 183, 7, 0.4);
+    /* This ensures it stays above everything else */
+    z-index: 10001; 
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
 }
 
-/* Class added by JS to reveal the scoreboard */
+/* 70px ensures it clears the 60px bar + 10px margin */
 .show-scoreboard {
-    bottom: 20px !important;
-    opacity: 1 !important; /* Fully visible */
+    bottom: 70px !important; 
+    opacity: 1 !important;
 }
 
 /* The +10 XP text that floats from the mouse */
