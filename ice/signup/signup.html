@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Feed Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+    <div id="formContainer">
+
+        <!-- HERO IMAGE -->
+        <img src="images/jesus_feeds_5000.jpeg"
+             alt="Jesus feeds the 5000"
+             class="hero-img">
+
+        <h3>Sign Up for Daily Scripture Feed</h3>
+
+        <form id="myForm">
+
+            <button type="button" id="closeBtn">X</button>
+
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+            </div>
+
+            <section class="checkbox-row">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to newsletter</label>
+            </section>
+
+            <section class="checkbox-row">
+                <input type="checkbox" id="conditions" name="conditions" required>
+                <label for="conditions">I acknowledge the terms and conditions</label>
+            </section>
+
+            <button type="submit" id="submitBtn">Submit</button>
+
+        </form>
+
+        <!-- FOOTER IMAGE STRIP -->
+        <div class="footer-images">
+            <img src="images/old_testament.webp" alt="Old Testament">
+            <img src="images/new_testament.webp" alt="New Testament">
+            <img src="images/book_of_mormon.webp" alt="Book of Mormon">
+            <img src="images/doctrine_and_covenants.webp" alt="Doctrine and Covenants">
+            <img src="images/pearl_of_great_price.webp" alt="Pearl of Great Price">
+        </div>
+
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("closeBtn").addEventListener("click", () => {
+            document.getElementById("formContainer").style.display = "none";
+        });
+
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            let result = "<h3>Data Received:</h3><ul>";
+
+            for (const [key, value] of formData.entries()) {
+                if (key === "password") {
+                    result += `<li><strong>${key}:</strong> ***** (Encrypted)</li>`;
+                } else {
+                    result += `<li><strong>${key}:</strong> ${value}</li>`;
+                }
+            }
+
+            result += "</ul>";
+            document.getElementById('output').innerHTML = result;
+        });
+    </script>
+
+</body>
+</html>
