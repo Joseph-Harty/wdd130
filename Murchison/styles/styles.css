@@ -1,0 +1,186 @@
+/* =========================================
+   Reset & Base Styles
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F1FAEE; 
+  color: #1D3557; 
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   Layout Containers
+   ========================================= */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   Header & Navigation
+   ========================================= */
+header {
+  background-color: #1D3557;
+  color: white;
+  padding: 1.5rem 0;
+}
+
+.header-top {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 3rem; /* Gives space between the Home button and the text block */
+}
+
+/* This stacks the title, subtitle, and buttons directly on top of each other */
+.header-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+.header-text-group h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.header-text-group p {
+  color: #A8DADC;
+  margin-bottom: 1rem; /* Adds a gap before the LA/SF buttons */
+}
+
+.destination-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Navigation Button Styles */
+.nav-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #1D3557;
+  background-color: #A8DADC;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+}
+
+.nav-btn:hover {
+  background-color: #E76F51; 
+  color: #F1FAEE; 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+  background: url('../images/main.jpg') center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  background: rgba(0,0,0,0.5); 
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+/* =========================================
+   Map Section & Intro Text
+   ========================================= */
+.map-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.intro-text {
+  text-align: center;
+  margin: 0 auto 3rem auto;
+  max-width: 800px;
+}
+
+/* =========================================
+   Trip Previews Grid & Cards
+   ========================================= */
+.trip-previews {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.trip-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.trip-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* The links inside the cards */
+.explore-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #1D3557;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #E76F51; 
+  padding-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.explore-link:hover {
+  color: #E76F51;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+  background-color: #1D3557;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
+@media (max-width: 768px) {
+  .trip-previews {
+    grid-template-columns: 1fr; /* Stacks the cards on small screens */
+  }
+}

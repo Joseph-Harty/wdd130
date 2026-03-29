@@ -4,70 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekend Trips from LA & SF</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
 
 <header>
-    <h1>Weekend Trips from Los Angeles and San Francisco</h1>
-    <p>Easy getaways without the research</p>
+    <div class="container">
+        <div class="header-top">
+            
+            <a href="index.html" class="nav-btn">Home</a>
+            
+            <div class="header-text-group">
+                <h1>Weekend Trips from Los Angeles and San Francisco</h1>
+                <p>Easy getaways without the research</p>
+                
+                <nav class="destination-nav">
+                    <ul>
+                        <li><a href="sf-trips.html" class="nav-btn">SF Trips</a></li>
+                        <li><a href="la-trips.html" class="nav-btn">LA Trips</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="la-trips.html">LA Trips</a></li>
-        <li><a href="sf-trips.html">SF Trips</a></li>
-    </ul>
-</nav>
-
 <main>
-
-    <section>
-        <h2>Welcome</h2>
-        <p>
-            Welcome to Weekend Trips from Los Angeles and San Francisco. This website helps travelers
-            discover easy weekend getaways without spending hours researching. Instead of searching
-            through long travel blogs, users can quickly explore destinations within driving distance
-            of these two major California cities.
-        </p>
+    <section class="hero">
+        <h2>Find Your Perfect Getaway</h2>
     </section>
 
-    <section>
-        <h2>Explore Destinations</h2>
-        <p>Use the map below to explore locations for your next weekend trip.</p>
+    <div class="container">
+        <section class="map-section">
+            <iframe 
+                src="https://maps.google.com/maps?q=California&t=&z=6&ie=UTF8&iwloc=&output=embed"
+                width="100%" 
+                height="400"
+                style="border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </iframe>
+        </section>
 
-        <iframe 
-            src="https://maps.google.com/maps?q=California&t=&z=6&ie=UTF8&iwloc=&output=embed"
-            width="600" 
-            height="400">
-        </iframe>
-    </section>
+        <section class="intro-text">
+            <h2>Welcome</h2>
+            <p>
+                Welcome to Weekend Trips from Los Angeles and San Francisco. This website helps travelers
+                discover easy weekend getaways without spending hours researching. Instead of searching
+                through long travel blogs, users can quickly explore destinations within driving distance
+                of these two major California cities.
+            </p>
+        </section>
 
-    <section>
-        <h2>Trips from Los Angeles</h2>
-        <img src="images/la.jpg" alt="Los Angeles Trips" width="300">
-        <p>
-            Los Angeles is surrounded by many great destinations that are perfect for weekend trips.
-            Visitors can explore beaches, mountains, and desert landscapes without traveling very far.
-        </p>
-        <p><a href="la-trips.html">Explore LA Trips</a></p>
-    </section>
+        <div class="trip-previews">
+            
+            <section class="trip-card">
+                <h2>Trips from San Francisco</h2>
+                <img src="images/sanfrancisco.jpg" alt="San Francisco Trips">
+                <p>
+                    San Francisco is located near many amazing travel destinations that are perfect for weekend trips.
+                    Visitors can explore coastal towns, mountains, and famous wine country.
+                </p>
+                <p><a href="sf-trips.html" class="explore-link">Explore SF Trips</a></p>
+            </section>
 
-    <section>
-        <h2>Trips from San Francisco</h2>
-        <img src="images/sf.jpg" alt="San Francisco Trips" width="300">
-        <p>
-            San Francisco is located near many amazing travel destinations that are perfect for weekend trips.
-            Visitors can explore coastal towns, mountains, and famous wine country.
-        </p>
-        <p><a href="sf-trips.html">Explore SF Trips</a></p>
-    </section>
-
+            <section class="trip-card">
+                <h2>Trips from Los Angeles</h2>
+                <img src="images/losangeles.jpg" alt="Los Angeles Trips">
+                <p>
+                    Los Angeles is surrounded by many great destinations that are perfect for weekend trips.
+                    Visitors can explore beaches, mountains, and desert landscapes without traveling very far.
+                </p>
+                <p><a href="la-trips.html" class="explore-link">Explore LA Trips</a></p>
+            </section>
+            
+        </div>
+    </div>
 </main>
 
 <footer>
-    <p>&copy; 2026 Weekend Trips Project | WDD 130</p>
+    <div class="container">
+        <p>© 2026 Weekend Trips Project | WDD 130</p>
+    </div>
 </footer>
 
 </body>
