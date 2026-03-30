@@ -42,7 +42,7 @@ header {
   justify-content: center; 
   align-items: center;
   flex-wrap: wrap; 
-  gap: 3rem; /* Gives space between the Home button and the text block */
+  gap: 3rem; 
 }
 
 /* This stacks the title, subtitle, and buttons directly on top of each other */
@@ -60,7 +60,7 @@ header {
 
 .header-text-group p {
   color: #A8DADC;
-  margin-bottom: 1rem; /* Adds a gap before the LA/SF buttons */
+  margin-bottom: 1rem; 
 }
 
 .destination-nav ul {
@@ -142,9 +142,11 @@ header {
   text-align: center;
 }
 
+/* FORCES ALL IMAGES TO BE THE SAME SIZE */
 .trip-card img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 250px; /* You can change this number if you want them taller or shorter */
+  object-fit: cover; /* This stops the images from looking stretched or squished */
   border-radius: 4px;
   margin-bottom: 1rem;
 }
